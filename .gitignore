@@ -1,0 +1,19 @@
+# general
+.DS_Store
+yarn-error.log*
+node_modules
+.cache
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.lnk
+
+# ide
+.idea
+.vscode
+
+# ssl
+.mkcert
+
+docker-compose.override.yml
