@@ -9,9 +9,6 @@ module.exports = {
     "./configs/eslint/unicorn",
     "./configs/eslint/import",
     "./configs/eslint/next",
+    "prettier",
   ],
 }
-
-
-
-
