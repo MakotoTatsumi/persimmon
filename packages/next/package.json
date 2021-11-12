@@ -3,6 +3,7 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev",
+    "type-check": "tsc",
     "fix": "run-p fix:*",
     "fix-ts-by-eslint": "eslint \"./src/**/*.{ts,tsx}\" --fix",
     "fix-ts-by-prettier": "prettier \"./src/**/*.{ts,tsx}\" --write",
@@ -10,7 +11,7 @@
     "fix:json": "prettier ./*.json ./**/*.json --write",
     "fix:pack": "fixpack",
     "fix:ts": "run-s fix-ts-by-eslint fix-ts-by-prettier",
-    "lint": "run-p lint:*",
+    "lint": "run-p lint:* type-check",
     "lint-ts-by-eslint": "eslint \"./src/**/*.{ts,tsx}\"",
     "lint-ts-by-prettier": "prettier \"./src/**/*.{ts,tsx}\" --check",
     "lint:ts": "run-s lint-ts-by-eslint lint-ts-by-prettier",
@@ -23,6 +24,8 @@
   },
   "devDependencies": {
     "@types/react": "17.0.31",
+    "@typescript-eslint/eslint-plugin": "^5.3.1",
+    "@typescript-eslint/parser": "^5.3.1",
     "eslint": "8.0.1",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-next": "11.1.2",

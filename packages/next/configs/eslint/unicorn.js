@@ -2,7 +2,6 @@ const { OFF, ERROR } = require("./const")
 
 module.exports = {
   plugins: ["unicorn"],
-  extends: ["plugin:unicorn/recommended"],
   rules: {
     "unicorn/explicit-length-check": OFF,
     "unicorn/filename-case": OFF,
