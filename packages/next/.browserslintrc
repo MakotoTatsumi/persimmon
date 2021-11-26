@@ -1,0 +1,10 @@
+[google bot]
+Chrome >= 74
+
+[pc]
+last 2 Edge major versions
+last 2 Safari major versions
+
+[android]
+iOS >= 14
+last 2 ChromeAndroid major versions
