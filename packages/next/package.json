@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "@storybook/react": "6.4.0-beta.8",
-    "@storybook/testing-react": "^1.0.0-next.1",
+    "@storybook/testing-react": "1.0.0-next.0",
     "@stylelint/postcss-css-in-js": "^0.37.2",
     "@swc/core": "^1.2.117",
     "@swc/jest": "^0.2.11",

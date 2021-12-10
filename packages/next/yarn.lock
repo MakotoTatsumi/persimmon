@@ -2674,10 +2674,10 @@
     ts-dedent "^2.0.0"
     util-deprecate "^1.0.2"
 
-"@storybook/testing-react@^1.0.0-next.1":
-  version "1.0.0-next.1"
-  resolved "https://registry.yarnpkg.com/@storybook/testing-react/-/testing-react-1.0.0-next.1.tgz#a8de566d0be6968e812fab79fdac40db9c8d7b1c"
-  integrity sha512-gsfpWq2KcuRoPPFdtRPNq+fIy3L30lV+r2o4uutoY33Awr46deZB8gD8vl97UsMElBJUC/CpX33O7TPc1UQ6FA==
+"@storybook/testing-react@1.0.0-next.0":
+  version "1.0.0-next.0"
+  resolved "https://registry.yarnpkg.com/@storybook/testing-react/-/testing-react-1.0.0-next.0.tgz#dcb7eafbdbecd13068f48ddd1fae2469b72d0627"
+  integrity sha512-ZIgbJKy/RXDvEhqfPuHli1tB77YZ6vb0kHhrrM0I50j/O18yvH/pIasgRIpD66DGg1XfiaH5Mp+kttOwaZrcNQ==
 
 "@storybook/theming@6.4.0-beta.8":
   version "6.4.0-beta.8"
