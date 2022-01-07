@@ -1,0 +1,13 @@
+{
+  "name": "persimmon",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/MakotoTatsumi/persimmon.git",
+  "author": "MakotoTatsumi <sakuchan.jp@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@commitlint/cli": "^16.0.1",
+    "@commitlint/config-conventional": "^16.0.0",
+    "husky": "^7.0.4"
+  }
+}
