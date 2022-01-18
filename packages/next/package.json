@@ -31,9 +31,12 @@
     "type-check": "tsc",
     "update-ss": "run-s ss:remove ss:copy ss:git-add ss:git-commit",
     "new:fc": "hygen new functional-component",
-    "new:pg": "hygen new pages-component"
+    "new:pg": "hygen new pages-component",
+    "client-gen": "openapi2aspida -c ./configs/aspida.config.js"
   },
   "dependencies": {
+    "@aspida/axios": "^1.7.1",
+    "axios": "^0.24.0",
     "next": "11.1.2",
     "react": "17.0.2",
     "react-dom": "17.0.2",
@@ -69,6 +72,7 @@
     "known-css-properties": "^0.23.0",
     "npm-run-all": "^4.1.5",
     "open-cli": "^7.0.1",
+    "openapi2aspida": "^0.17.0",
     "postcss-jsx": "^0.36.4",
     "prettier": "^2.4.1",
     "react-test-renderer": "^17.0.2",
