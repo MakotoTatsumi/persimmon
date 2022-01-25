@@ -1,4 +1,5 @@
 import type { NextPage } from "next"
+import {apiClient} from "../shared/utils/apiClient";
 
 const Home: NextPage = (props: any) => {
   const { articleData } = props
@@ -10,12 +11,13 @@ const Home: NextPage = (props: any) => {
 export default Home
 
 export async function getStaticProps() {
-  const articleData = await fetch("http://localhost:1337/blogs").then(res => res.json())
+  const articleData = await apiClient.blogs.get()
+  console.log(articleData.body)
 
   return {
     props: {
       name: "パーシモン",
-      articleData
+      articleData: articleData.body
     },
   }
 }

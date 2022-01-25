@@ -525,7 +525,7 @@
           "articleTitle": {
             "type": "string"
           },
-          "ArticleBody": {
+          "Hogehogehoge": {
             "type": "string"
           },
           "published_at": {
@@ -539,7 +539,7 @@
           "articleTitle": {
             "type": "string"
           },
-          "ArticleBody": {
+          "Hogehogehoge": {
             "type": "string"
           },
           "published_at": {

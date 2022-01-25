@@ -16,7 +16,7 @@
       "type": "string",
       "required": false
     },
-    "ArticleBody": {
+    "Hogehogehoge": {
       "type": "richtext"
     }
   }
