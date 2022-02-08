@@ -14,10 +14,21 @@
   "attributes": {
     "articleTitle": {
       "type": "string",
-      "required": false
+      "required": true
     },
-    "Hogehogehoge": {
-      "type": "richtext"
+    "articleContent": {
+      "type": "richtext",
+      "required": true
+    },
+    "eyeCatch": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true,
+      "pluginOptions": {}
     }
   }
 }
