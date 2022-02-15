@@ -1,17 +1,37 @@
 /* eslint-disable */
 export type Blog = {
   id: string
-  articleTitle?: string
-  ArticleBody?: string
+  articleTitle: string
+  articleContent: string
+
+  eyeCatch: {
+    id: string
+    name: string
+    alternativeText?: string
+    caption?: string
+    width?: number
+    height?: number
+    hash: string
+    ext?: string
+    mime: string
+    size: number
+    url: string
+    previewUrl?: string
+    provider: string
+    related?: string
+    created_by?: string
+    updated_by?: string
+  }
+
   published_at?: string
 }
 
 export type NewBlog = {
   articleTitle: string
-  ArticleBody: string
-  published_at: string
-  created_by: string
-  updated_by: string
+  articleContent: string
+  published_at?: string
+  created_by?: string
+  updated_by?: string
 }
 
 export type UsersPermissionsRole = {
