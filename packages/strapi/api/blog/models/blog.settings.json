@@ -29,6 +29,15 @@
       "plugin": "upload",
       "required": true,
       "pluginOptions": {}
+    },
+    "createdAt": {
+      "type": "date",
+      "required": true
+    },
+    "tags": {
+      "collection": "tags",
+      "via": "articles",
+      "dominant": true
     }
   }
 }

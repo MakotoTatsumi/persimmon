@@ -1,7 +1,7 @@
 import type { NextPage } from "next"
 import { apiClient } from "../shared/utils/apiClient";
 import { format } from 'date-fns'
-import { Methods } from "../libs/apiClient/blogs";
+import { Methods } from "../libs/apiClient/strapi/blogs";
 
 type BlogsGetResult = {
   status: number

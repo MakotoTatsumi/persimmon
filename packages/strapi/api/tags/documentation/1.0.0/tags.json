@@ -1,18 +1,18 @@
 {
   "paths": {
-    "/blogs": {
+    "/tags": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Find all the tags's records",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve tags document(s)",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Blog"
+                    "$ref": "#/components/schemas/Tags"
                   }
                 }
               }
@@ -51,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Blog"
+          "Tags"
         ],
         "parameters": [
           {
@@ -194,14 +194,14 @@
       },
       "post": {
         "deprecated": false,
-        "description": "Create a new record",
+        "description": "Create a new tags record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve tags document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Blog"
+                  "$ref": "#/components/schemas/Tags"
                 }
               }
             }
@@ -239,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "Blog"
+          "Tags"
         ],
         "requestBody": {
           "description": "",
@@ -247,20 +247,20 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewBlog"
+                "$ref": "#/components/schemas/NewTags"
               }
             }
           }
         }
       }
     },
-    "/blogs/count": {
+    "/tags/count": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Retrieve the number of tags documents",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve tags document(s)",
             "content": {
               "application/json": {
                 "schema": {
@@ -306,22 +306,22 @@
         },
         "summary": "",
         "tags": [
-          "Blog"
+          "Tags"
         ],
         "parameters": []
       }
     },
-    "/blogs/{id}": {
+    "/tags/{id}": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Find one tags record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve tags document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Blog"
+                  "$ref": "#/components/schemas/Tags"
                 }
               }
             }
@@ -359,7 +359,7 @@
         },
         "summary": "",
         "tags": [
-          "Blog"
+          "Tags"
         ],
         "parameters": [
           {
@@ -376,14 +376,14 @@
       },
       "put": {
         "deprecated": false,
-        "description": "Update a record",
+        "description": "Update a single tags record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve tags document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Blog"
+                  "$ref": "#/components/schemas/Tags"
                 }
               }
             }
@@ -421,7 +421,7 @@
         },
         "summary": "",
         "tags": [
-          "Blog"
+          "Tags"
         ],
         "requestBody": {
           "description": "",
@@ -429,7 +429,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewBlog"
+                "$ref": "#/components/schemas/NewTags"
               }
             }
           }
@@ -449,10 +449,10 @@
       },
       "delete": {
         "deprecated": false,
-        "description": "Delete a record",
+        "description": "Delete a single tags record",
         "responses": {
           "200": {
-            "description": "deletes a single record based on the ID supplied",
+            "description": "deletes a single tags based on the ID supplied",
             "content": {
               "application/json": {
                 "schema": {
@@ -495,7 +495,7 @@
         },
         "summary": "",
         "tags": [
-          "Blog"
+          "Tags"
         ],
         "parameters": [
           {
@@ -514,109 +514,44 @@
   },
   "components": {
     "schemas": {
-      "Blog": {
+      "Tags": {
         "required": [
-          "id",
-          "articleTitle",
-          "articleContent",
-          "eyeCatch",
-          "createdAt"
+          "id"
         ],
         "properties": {
           "id": {
             "type": "string"
           },
-          "articleTitle": {
+          "tagName": {
             "type": "string"
           },
-          "articleContent": {
-            "type": "string"
-          },
-          "eyeCatch": {
-            "required": [
-              "id",
-              "name",
-              "hash",
-              "mime",
-              "size",
-              "url",
-              "provider"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "alternativeText": {
-                "type": "string"
-              },
-              "caption": {
-                "type": "string"
-              },
-              "width": {
-                "type": "integer"
-              },
-              "height": {
-                "type": "integer"
-              },
-              "formats": {
-                "type": "object"
-              },
-              "hash": {
-                "type": "string"
-              },
-              "ext": {
-                "type": "string"
-              },
-              "mime": {
-                "type": "string"
-              },
-              "size": {
-                "type": "number"
-              },
-              "url": {
-                "type": "string"
-              },
-              "previewUrl": {
-                "type": "string"
-              },
-              "provider": {
-                "type": "string"
-              },
-              "provider_metadata": {
-                "type": "object"
-              },
-              "related": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date"
-          },
-          "tags": {
+          "articles": {
             "type": "array",
             "items": {
               "required": [
-                "id"
+                "id",
+                "articleTitle",
+                "articleContent",
+                "eyeCatch",
+                "createdAt"
               ],
               "properties": {
                 "id": {
                   "type": "string"
                 },
-                "tagName": {
+                "articleTitle": {
                   "type": "string"
                 },
-                "articles": {
+                "articleContent": {
+                  "type": "string"
+                },
+                "eyeCatch": {
+                  "type": "string"
+                },
+                "createdAt": {
+                  "type": "string"
+                },
+                "tags": {
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -640,24 +575,12 @@
           }
         }
       },
-      "NewBlog": {
-        "required": [
-          "articleTitle",
-          "articleContent",
-          "createdAt"
-        ],
+      "NewTags": {
         "properties": {
-          "articleTitle": {
+          "tagName": {
             "type": "string"
           },
-          "articleContent": {
-            "type": "string"
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date"
-          },
-          "tags": {
+          "articles": {
             "type": "array",
             "items": {
               "type": "string"
@@ -679,7 +602,7 @@
   },
   "tags": [
     {
-      "name": "Blog"
+      "name": "Tags"
     }
   ]
 }
