@@ -3,6 +3,9 @@
   "scripts": {
     "build": "next build",
     "check-all": "npm-run-all -p spell-check type-check lint -s test",
+    "clean-strapi": "rimraf ./src/libs/apiClient/strapi",
+    "client-gen": "run-p client-gen:*",
+    "client-gen:strapi": "run-s clean-strapi gen-strapi",
     "compare-story": "run-s -c ss:capture reg-suit:save reg-suit:open",
     "dev": "next dev",
     "fix": "run-p fix:*",
@@ -12,11 +15,14 @@
     "fix:json": "prettier ./*.json ./**/*.json --write",
     "fix:pack": "fixpack",
     "fix:ts": "run-s fix-ts-by-eslint fix-ts-by-prettier",
+    "gen-strapi": "openapi2aspida -c \"./configs/aspida/strapi.config.js\"",
     "lint": "run-p lint:*",
     "lint-ts-by-eslint": "eslint \"./src/**/*.{ts,tsx}\"",
     "lint-ts-by-prettier": "prettier \"./src/**/*.{ts,tsx}\" --check",
     "lint:css": "stylelint \"./src/**/*.{ts,tsx}\"",
     "lint:ts": "run-s lint-ts-by-eslint lint-ts-by-prettier",
+    "new:fc": "hygen new functional-component",
+    "new:pg": "hygen new pages-component",
     "reg-suit:open": "open-cli \"./report.html\"",
     "reg-suit:save": "reg-cli \"./.screenshot/actual\" \"./.screenshot/expected\" \"./.screenshot/diff\" -R \"./report.html\"",
     "spell-check": "cspell \"./src/**/*.{ts,tsx}\"",
@@ -29,10 +35,7 @@
     "storybook": "start-storybook -p 6006 -s public",
     "test": "jest",
     "type-check": "tsc",
-    "update-ss": "run-s ss:remove ss:copy ss:git-add ss:git-commit",
-    "new:fc": "hygen new functional-component",
-    "new:pg": "hygen new pages-component",
-    "client-gen": "openapi2aspida -c ./configs/aspida.config.js"
+    "update-ss": "run-s ss:remove ss:copy ss:git-add ss:git-commit"
   },
   "dependencies": {
     "@aspida/axios": "^1.7.1",

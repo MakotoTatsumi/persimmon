@@ -23,15 +23,51 @@ export type Blog = {
     updated_by?: string
   }
 
+  createdAt: string
+  tags?: {
+    id: string
+    tagName?: string
+    articles?: string[]
+    published_at?: string
+    created_by?: string
+    updated_by?: string
+  }[]
   published_at?: string
 }
 
 export type NewBlog = {
   articleTitle: string
   articleContent: string
+  createdAt: string
+  tags?: string[]
   published_at?: string
   created_by?: string
   updated_by?: string
+}
+
+export type Tags = {
+  id: string
+  tagName?: string
+  articles?: {
+    id: string
+    articleTitle: string
+    articleContent: string
+    eyeCatch: string
+    createdAt: string
+    tags?: string[]
+    published_at?: string
+    created_by?: string
+    updated_by?: string
+  }[]
+  published_at?: string
+}
+
+export type NewTags = {
+  tagName: string
+  articles: string[]
+  published_at: string
+  created_by: string
+  updated_by: string
 }
 
 export type UsersPermissionsRole = {

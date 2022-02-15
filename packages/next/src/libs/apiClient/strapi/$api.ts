@@ -30,29 +30,35 @@ import { Methods as Methods12 } from './email/settings'
 // prettier-ignore
 import { Methods as Methods13 } from './email/test'
 // prettier-ignore
-import { Methods as Methods14 } from './upload'
+import { Methods as Methods14 } from './tags'
 // prettier-ignore
-import { Methods as Methods15 } from './upload/files'
+import { Methods as Methods15 } from './tags/_id@string'
 // prettier-ignore
-import { Methods as Methods16 } from './upload/files/_id@string'
+import { Methods as Methods16 } from './tags/count'
 // prettier-ignore
-import { Methods as Methods17 } from './upload/files/count'
+import { Methods as Methods17 } from './upload'
 // prettier-ignore
-import { Methods as Methods18 } from './upload/search/_id@string'
+import { Methods as Methods18 } from './upload/files'
 // prettier-ignore
-import { Methods as Methods19 } from './users'
+import { Methods as Methods19 } from './upload/files/_id@string'
 // prettier-ignore
-import { Methods as Methods20 } from './users/_id@string'
+import { Methods as Methods20 } from './upload/files/count'
 // prettier-ignore
-import { Methods as Methods21 } from './users/me'
+import { Methods as Methods21 } from './upload/search/_id@string'
 // prettier-ignore
-import { Methods as Methods22 } from './users-permissions/roles'
+import { Methods as Methods22 } from './users'
 // prettier-ignore
-import { Methods as Methods23 } from './users-permissions/roles/_id@string'
+import { Methods as Methods23 } from './users/_id@string'
 // prettier-ignore
-import { Methods as Methods24 } from './users-permissions/roles/_role@string'
+import { Methods as Methods24 } from './users/me'
 // prettier-ignore
-import { Methods as Methods25 } from './users-permissions/search/_id@string'
+import { Methods as Methods25 } from './users-permissions/roles'
+// prettier-ignore
+import { Methods as Methods26 } from './users-permissions/roles/_id@string'
+// prettier-ignore
+import { Methods as Methods27 } from './users-permissions/roles/_role@string'
+// prettier-ignore
+import { Methods as Methods28 } from './users-permissions/search/_id@string'
 
 // prettier-ignore
 const api = <T>({ baseURL, fetch }: AspidaClient<T>) => {
@@ -71,14 +77,16 @@ const api = <T>({ baseURL, fetch }: AspidaClient<T>) => {
   const PATH11 = '/email'
   const PATH12 = '/email/settings'
   const PATH13 = '/email/test'
-  const PATH14 = '/upload'
-  const PATH15 = '/upload/files'
-  const PATH16 = '/upload/files/count'
-  const PATH17 = '/upload/search'
-  const PATH18 = '/users'
-  const PATH19 = '/users/me'
-  const PATH20 = '/users-permissions/roles'
-  const PATH21 = '/users-permissions/search'
+  const PATH14 = '/tags'
+  const PATH15 = '/tags/count'
+  const PATH16 = '/upload'
+  const PATH17 = '/upload/files'
+  const PATH18 = '/upload/files/count'
+  const PATH19 = '/upload/search'
+  const PATH20 = '/users'
+  const PATH21 = '/users/me'
+  const PATH22 = '/users-permissions/roles'
+  const PATH23 = '/users-permissions/search'
   const GET = 'GET'
   const POST = 'POST'
   const PUT = 'PUT'
@@ -326,10 +334,82 @@ const api = <T>({ baseURL, fetch }: AspidaClient<T>) => {
         fetch<Methods11['post']['resBody'], BasicHeaders, Methods11['post']['status']>(prefix, PATH11, POST, option).json().then(r => r.body),
       $path: () => `${prefix}${PATH11}`
     },
+    tags: {
+      _id: (val1: string) => {
+        const prefix1 = `${PATH14}/${val1}`
+
+        return {
+          /**
+           * Find one tags record
+           * @returns Retrieve tags document(s)
+           */
+          get: (option?: { config?: T }) =>
+            fetch<Methods15['get']['resBody'], BasicHeaders, Methods15['get']['status']>(prefix, prefix1, GET, option).json(),
+          /**
+           * Find one tags record
+           * @returns Retrieve tags document(s)
+           */
+          $get: (option?: { config?: T }) =>
+            fetch<Methods15['get']['resBody'], BasicHeaders, Methods15['get']['status']>(prefix, prefix1, GET, option).json().then(r => r.body),
+          /**
+           * Update a single tags record
+           * @returns Retrieve tags document(s)
+           */
+          put: (option: { body: Methods15['put']['reqBody'], config?: T }) =>
+            fetch<Methods15['put']['resBody'], BasicHeaders, Methods15['put']['status']>(prefix, prefix1, PUT, option).json(),
+          /**
+           * Update a single tags record
+           * @returns Retrieve tags document(s)
+           */
+          $put: (option: { body: Methods15['put']['reqBody'], config?: T }) =>
+            fetch<Methods15['put']['resBody'], BasicHeaders, Methods15['put']['status']>(prefix, prefix1, PUT, option).json().then(r => r.body),
+          /**
+           * Delete a single tags record
+           * @returns deletes a single tags based on the ID supplied
+           */
+          delete: (option?: { config?: T }) =>
+            fetch<Methods15['delete']['resBody'], BasicHeaders, Methods15['delete']['status']>(prefix, prefix1, DELETE, option).json(),
+          /**
+           * Delete a single tags record
+           * @returns deletes a single tags based on the ID supplied
+           */
+          $delete: (option?: { config?: T }) =>
+            fetch<Methods15['delete']['resBody'], BasicHeaders, Methods15['delete']['status']>(prefix, prefix1, DELETE, option).json().then(r => r.body),
+          $path: () => `${prefix}${prefix1}`
+        }
+      },
+      count: {
+        /**
+         * Retrieve the number of tags documents
+         * @returns Retrieve tags document(s)
+         */
+        get: (option?: { config?: T }) =>
+          fetch<Methods16['get']['resBody'], BasicHeaders, Methods16['get']['status']>(prefix, PATH15, GET, option).json(),
+        /**
+         * Retrieve the number of tags documents
+         * @returns Retrieve tags document(s)
+         */
+        $get: (option?: { config?: T }) =>
+          fetch<Methods16['get']['resBody'], BasicHeaders, Methods16['get']['status']>(prefix, PATH15, GET, option).json().then(r => r.body),
+        $path: () => `${prefix}${PATH15}`
+      },
+      /**
+       * Find all the tags's records
+       */
+      get: (option?: { query?: Methods14['get']['query'], config?: T }) =>
+        fetch(prefix, PATH14, GET, option).send(),
+      /**
+       * Find all the tags's records
+       */
+      $get: (option?: { query?: Methods14['get']['query'], config?: T }) =>
+        fetch(prefix, PATH14, GET, option).send().then(r => r.body),
+      $path: (option?: { method?: 'get'; query: Methods14['get']['query'] }) =>
+        `${prefix}${PATH14}${option && option.query ? `?${dataToURLString(option.query)}` : ''}`
+    },
     upload: {
       files: {
         _id: (val2: string) => {
-          const prefix2 = `${PATH15}/${val2}`
+          const prefix2 = `${PATH17}/${val2}`
 
           return {
             /**
@@ -337,25 +417,25 @@ const api = <T>({ baseURL, fetch }: AspidaClient<T>) => {
              * @returns response
              */
             get: (option?: { config?: T }) =>
-              fetch<Methods16['get']['resBody'], BasicHeaders, Methods16['get']['status']>(prefix, prefix2, GET, option).json(),
+              fetch<Methods19['get']['resBody'], BasicHeaders, Methods19['get']['status']>(prefix, prefix2, GET, option).json(),
             /**
              * Retrieve a single file depending on its id
              * @returns response
              */
             $get: (option?: { config?: T }) =>
-              fetch<Methods16['get']['resBody'], BasicHeaders, Methods16['get']['status']>(prefix, prefix2, GET, option).json().then(r => r.body),
+              fetch<Methods19['get']['resBody'], BasicHeaders, Methods19['get']['status']>(prefix, prefix2, GET, option).json().then(r => r.body),
             /**
              * Delete an uploaded file
              * @returns response
              */
             delete: (option?: { config?: T }) =>
-              fetch<Methods16['delete']['resBody'], BasicHeaders, Methods16['delete']['status']>(prefix, prefix2, DELETE, option).json(),
+              fetch<Methods19['delete']['resBody'], BasicHeaders, Methods19['delete']['status']>(prefix, prefix2, DELETE, option).json(),
             /**
              * Delete an uploaded file
              * @returns response
              */
             $delete: (option?: { config?: T }) =>
-              fetch<Methods16['delete']['resBody'], BasicHeaders, Methods16['delete']['status']>(prefix, prefix2, DELETE, option).json().then(r => r.body),
+              fetch<Methods19['delete']['resBody'], BasicHeaders, Methods19['delete']['status']>(prefix, prefix2, DELETE, option).json().then(r => r.body),
             $path: () => `${prefix}${prefix2}`
           }
         },
@@ -365,32 +445,32 @@ const api = <T>({ baseURL, fetch }: AspidaClient<T>) => {
            * @returns response
            */
           get: (option?: { config?: T }) =>
-            fetch<Methods17['get']['resBody'], BasicHeaders, Methods17['get']['status']>(prefix, PATH16, GET, option).json(),
+            fetch<Methods20['get']['resBody'], BasicHeaders, Methods20['get']['status']>(prefix, PATH18, GET, option).json(),
           /**
            * Retrieve the total number of uploaded files
            * @returns response
            */
           $get: (option?: { config?: T }) =>
-            fetch<Methods17['get']['resBody'], BasicHeaders, Methods17['get']['status']>(prefix, PATH16, GET, option).json().then(r => r.body),
-          $path: () => `${prefix}${PATH16}`
+            fetch<Methods20['get']['resBody'], BasicHeaders, Methods20['get']['status']>(prefix, PATH18, GET, option).json().then(r => r.body),
+          $path: () => `${prefix}${PATH18}`
         },
         /**
          * Retrieve all file documents
          * @returns response
          */
         get: (option?: { config?: T }) =>
-          fetch<Methods15['get']['resBody'], BasicHeaders, Methods15['get']['status']>(prefix, PATH15, GET, option).json(),
+          fetch<Methods18['get']['resBody'], BasicHeaders, Methods18['get']['status']>(prefix, PATH17, GET, option).json(),
         /**
          * Retrieve all file documents
          * @returns response
          */
         $get: (option?: { config?: T }) =>
-          fetch<Methods15['get']['resBody'], BasicHeaders, Methods15['get']['status']>(prefix, PATH15, GET, option).json().then(r => r.body),
-        $path: () => `${prefix}${PATH15}`
+          fetch<Methods18['get']['resBody'], BasicHeaders, Methods18['get']['status']>(prefix, PATH17, GET, option).json().then(r => r.body),
+        $path: () => `${prefix}${PATH17}`
       },
       search: {
         _id: (val2: string) => {
-          const prefix2 = `${PATH17}/${val2}`
+          const prefix2 = `${PATH19}/${val2}`
 
           return {
             /**
@@ -398,13 +478,13 @@ const api = <T>({ baseURL, fetch }: AspidaClient<T>) => {
              * @returns response
              */
             get: (option?: { config?: T }) =>
-              fetch<Methods18['get']['resBody'], BasicHeaders, Methods18['get']['status']>(prefix, prefix2, GET, option).json(),
+              fetch<Methods21['get']['resBody'], BasicHeaders, Methods21['get']['status']>(prefix, prefix2, GET, option).json(),
             /**
              * Search for an uploaded file
              * @returns response
              */
             $get: (option?: { config?: T }) =>
-              fetch<Methods18['get']['resBody'], BasicHeaders, Methods18['get']['status']>(prefix, prefix2, GET, option).json().then(r => r.body),
+              fetch<Methods21['get']['resBody'], BasicHeaders, Methods21['get']['status']>(prefix, prefix2, GET, option).json().then(r => r.body),
             $path: () => `${prefix}${prefix2}`
           }
         }
@@ -413,19 +493,19 @@ const api = <T>({ baseURL, fetch }: AspidaClient<T>) => {
        * Upload a file
        * @returns response
        */
-      post: (option: { body: Methods14['post']['reqBody'], config?: T }) =>
-        fetch<Methods14['post']['resBody'], BasicHeaders, Methods14['post']['status']>(prefix, PATH14, POST, option).json(),
+      post: (option: { body: Methods17['post']['reqBody'], config?: T }) =>
+        fetch<Methods17['post']['resBody'], BasicHeaders, Methods17['post']['status']>(prefix, PATH16, POST, option).json(),
       /**
        * Upload a file
        * @returns response
        */
-      $post: (option: { body: Methods14['post']['reqBody'], config?: T }) =>
-        fetch<Methods14['post']['resBody'], BasicHeaders, Methods14['post']['status']>(prefix, PATH14, POST, option).json().then(r => r.body),
-      $path: () => `${prefix}${PATH14}`
+      $post: (option: { body: Methods17['post']['reqBody'], config?: T }) =>
+        fetch<Methods17['post']['resBody'], BasicHeaders, Methods17['post']['status']>(prefix, PATH16, POST, option).json().then(r => r.body),
+      $path: () => `${prefix}${PATH16}`
     },
     users: {
       _id: (val1: string) => {
-        const prefix1 = `${PATH18}/${val1}`
+        const prefix1 = `${PATH20}/${val1}`
 
         return {
           /**
@@ -433,37 +513,37 @@ const api = <T>({ baseURL, fetch }: AspidaClient<T>) => {
            * @returns response
            */
           get: (option?: { config?: T }) =>
-            fetch<Methods20['get']['resBody'], BasicHeaders, Methods20['get']['status']>(prefix, prefix1, GET, option).json(),
+            fetch<Methods23['get']['resBody'], BasicHeaders, Methods23['get']['status']>(prefix, prefix1, GET, option).json(),
           /**
            * Retrieve a single user depending on his id
            * @returns response
            */
           $get: (option?: { config?: T }) =>
-            fetch<Methods20['get']['resBody'], BasicHeaders, Methods20['get']['status']>(prefix, prefix1, GET, option).json().then(r => r.body),
+            fetch<Methods23['get']['resBody'], BasicHeaders, Methods23['get']['status']>(prefix, prefix1, GET, option).json().then(r => r.body),
           /**
            * Update an existing user
            * @returns response
            */
-          put: (option: { body: Methods20['put']['reqBody'], config?: T }) =>
-            fetch<Methods20['put']['resBody'], BasicHeaders, Methods20['put']['status']>(prefix, prefix1, PUT, option).json(),
+          put: (option: { body: Methods23['put']['reqBody'], config?: T }) =>
+            fetch<Methods23['put']['resBody'], BasicHeaders, Methods23['put']['status']>(prefix, prefix1, PUT, option).json(),
           /**
            * Update an existing user
            * @returns response
            */
-          $put: (option: { body: Methods20['put']['reqBody'], config?: T }) =>
-            fetch<Methods20['put']['resBody'], BasicHeaders, Methods20['put']['status']>(prefix, prefix1, PUT, option).json().then(r => r.body),
+          $put: (option: { body: Methods23['put']['reqBody'], config?: T }) =>
+            fetch<Methods23['put']['resBody'], BasicHeaders, Methods23['put']['status']>(prefix, prefix1, PUT, option).json().then(r => r.body),
           /**
            * Delete an existing user
            * @returns response
            */
           delete: (option?: { config?: T }) =>
-            fetch<Methods20['delete']['resBody'], BasicHeaders, Methods20['delete']['status']>(prefix, prefix1, DELETE, option).json(),
+            fetch<Methods23['delete']['resBody'], BasicHeaders, Methods23['delete']['status']>(prefix, prefix1, DELETE, option).json(),
           /**
            * Delete an existing user
            * @returns response
            */
           $delete: (option?: { config?: T }) =>
-            fetch<Methods20['delete']['resBody'], BasicHeaders, Methods20['delete']['status']>(prefix, prefix1, DELETE, option).json().then(r => r.body),
+            fetch<Methods23['delete']['resBody'], BasicHeaders, Methods23['delete']['status']>(prefix, prefix1, DELETE, option).json().then(r => r.body),
           $path: () => `${prefix}${prefix1}`
         }
       },
@@ -473,32 +553,32 @@ const api = <T>({ baseURL, fetch }: AspidaClient<T>) => {
          * @returns response
          */
         get: (option?: { config?: T }) =>
-          fetch<Methods21['get']['resBody'], BasicHeaders, Methods21['get']['status']>(prefix, PATH19, GET, option).json(),
+          fetch<Methods24['get']['resBody'], BasicHeaders, Methods24['get']['status']>(prefix, PATH21, GET, option).json(),
         /**
          * Retrieve the logged in user information
          * @returns response
          */
         $get: (option?: { config?: T }) =>
-          fetch<Methods21['get']['resBody'], BasicHeaders, Methods21['get']['status']>(prefix, PATH19, GET, option).json().then(r => r.body),
-        $path: () => `${prefix}${PATH19}`
+          fetch<Methods24['get']['resBody'], BasicHeaders, Methods24['get']['status']>(prefix, PATH21, GET, option).json().then(r => r.body),
+        $path: () => `${prefix}${PATH21}`
       },
       /**
        * Retrieve all user documents
        */
-      get: (option?: { query?: Methods19['get']['query'], config?: T }) =>
-        fetch(prefix, PATH18, GET, option).send(),
+      get: (option?: { query?: Methods22['get']['query'], config?: T }) =>
+        fetch(prefix, PATH20, GET, option).send(),
       /**
        * Retrieve all user documents
        */
-      $get: (option?: { query?: Methods19['get']['query'], config?: T }) =>
-        fetch(prefix, PATH18, GET, option).send().then(r => r.body),
-      $path: (option?: { method?: 'get'; query: Methods19['get']['query'] }) =>
-        `${prefix}${PATH18}${option && option.query ? `?${dataToURLString(option.query)}` : ''}`
+      $get: (option?: { query?: Methods22['get']['query'], config?: T }) =>
+        fetch(prefix, PATH20, GET, option).send().then(r => r.body),
+      $path: (option?: { method?: 'get'; query: Methods22['get']['query'] }) =>
+        `${prefix}${PATH20}${option && option.query ? `?${dataToURLString(option.query)}` : ''}`
     },
     users_permissions: {
       roles: {
         _id: (val2: string) => {
-          const prefix2 = `${PATH20}/${val2}`
+          const prefix2 = `${PATH22}/${val2}`
 
           return {
             /**
@@ -506,76 +586,76 @@ const api = <T>({ baseURL, fetch }: AspidaClient<T>) => {
              * @returns response
              */
             get: (option?: { config?: T }) =>
-              fetch<Methods23['get']['resBody'], BasicHeaders, Methods23['get']['status']>(prefix, prefix2, GET, option).json(),
+              fetch<Methods26['get']['resBody'], BasicHeaders, Methods26['get']['status']>(prefix, prefix2, GET, option).json(),
             /**
              * Retrieve a role depending on its id
              * @returns response
              */
             $get: (option?: { config?: T }) =>
-              fetch<Methods23['get']['resBody'], BasicHeaders, Methods23['get']['status']>(prefix, prefix2, GET, option).json().then(r => r.body),
+              fetch<Methods26['get']['resBody'], BasicHeaders, Methods26['get']['status']>(prefix, prefix2, GET, option).json().then(r => r.body),
             $path: () => `${prefix}${prefix2}`
           }
         },
         _role: (val2: string) => {
-          const prefix2 = `${PATH20}/${val2}`
+          const prefix2 = `${PATH22}/${val2}`
 
           return {
             /**
              * Update a role
              * @returns response
              */
-            put: (option: { body: Methods24['put']['reqBody'], config?: T }) =>
-              fetch<Methods24['put']['resBody'], BasicHeaders, Methods24['put']['status']>(prefix, prefix2, PUT, option).json(),
+            put: (option: { body: Methods27['put']['reqBody'], config?: T }) =>
+              fetch<Methods27['put']['resBody'], BasicHeaders, Methods27['put']['status']>(prefix, prefix2, PUT, option).json(),
             /**
              * Update a role
              * @returns response
              */
-            $put: (option: { body: Methods24['put']['reqBody'], config?: T }) =>
-              fetch<Methods24['put']['resBody'], BasicHeaders, Methods24['put']['status']>(prefix, prefix2, PUT, option).json().then(r => r.body),
+            $put: (option: { body: Methods27['put']['reqBody'], config?: T }) =>
+              fetch<Methods27['put']['resBody'], BasicHeaders, Methods27['put']['status']>(prefix, prefix2, PUT, option).json().then(r => r.body),
             /**
              * Delete a role
              * @returns response
              */
             delete: (option?: { config?: T }) =>
-              fetch<Methods24['delete']['resBody'], BasicHeaders, Methods24['delete']['status']>(prefix, prefix2, DELETE, option).json(),
+              fetch<Methods27['delete']['resBody'], BasicHeaders, Methods27['delete']['status']>(prefix, prefix2, DELETE, option).json(),
             /**
              * Delete a role
              * @returns response
              */
             $delete: (option?: { config?: T }) =>
-              fetch<Methods24['delete']['resBody'], BasicHeaders, Methods24['delete']['status']>(prefix, prefix2, DELETE, option).json().then(r => r.body),
+              fetch<Methods27['delete']['resBody'], BasicHeaders, Methods27['delete']['status']>(prefix, prefix2, DELETE, option).json().then(r => r.body),
             $path: () => `${prefix}${prefix2}`
           }
         },
         /**
          * Retrieve all role documents
          */
-        get: (option?: { query?: Methods22['get']['query'], config?: T }) =>
-          fetch(prefix, PATH20, GET, option).send(),
+        get: (option?: { query?: Methods25['get']['query'], config?: T }) =>
+          fetch(prefix, PATH22, GET, option).send(),
         /**
          * Retrieve all role documents
          */
-        $get: (option?: { query?: Methods22['get']['query'], config?: T }) =>
-          fetch(prefix, PATH20, GET, option).send().then(r => r.body),
-        $path: (option?: { method?: 'get'; query: Methods22['get']['query'] }) =>
-          `${prefix}${PATH20}${option && option.query ? `?${dataToURLString(option.query)}` : ''}`
+        $get: (option?: { query?: Methods25['get']['query'], config?: T }) =>
+          fetch(prefix, PATH22, GET, option).send().then(r => r.body),
+        $path: (option?: { method?: 'get'; query: Methods25['get']['query'] }) =>
+          `${prefix}${PATH22}${option && option.query ? `?${dataToURLString(option.query)}` : ''}`
       },
       search: {
         _id: (val2: string) => {
-          const prefix2 = `${PATH21}/${val2}`
+          const prefix2 = `${PATH23}/${val2}`
 
           return {
             /**
              * Search for users
              */
-            get: (option?: { query?: Methods25['get']['query'], config?: T }) =>
+            get: (option?: { query?: Methods28['get']['query'], config?: T }) =>
               fetch(prefix, prefix2, GET, option).send(),
             /**
              * Search for users
              */
-            $get: (option?: { query?: Methods25['get']['query'], config?: T }) =>
+            $get: (option?: { query?: Methods28['get']['query'], config?: T }) =>
               fetch(prefix, prefix2, GET, option).send().then(r => r.body),
-            $path: (option?: { method?: 'get'; query: Methods25['get']['query'] }) =>
+            $path: (option?: { method?: 'get'; query: Methods28['get']['query'] }) =>
               `${prefix}${prefix2}${option && option.query ? `?${dataToURLString(option.query)}` : ''}`
           }
         }
