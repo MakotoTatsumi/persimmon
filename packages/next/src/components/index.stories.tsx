@@ -2,7 +2,7 @@ import userEvent from "@testing-library/user-event"
 import { screen } from "@testing-library/react"
 
 import { CheckBox } from "./sample.";
-import {StoryObj} from "@storybook/react";
+import { StoryObj } from "@storybook/react";
 
 export default {
   title: "Checkbox",
