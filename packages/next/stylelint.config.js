@@ -2,6 +2,7 @@ const properties = require("known-css-properties").all
 
 module.exports = {
   processors: ["stylelint-processor-styled-components"],
+  customSyntax: "postcss-jsx",
   plugins: [
     "stylelint-prettier",
     "stylelint-order",
@@ -10,7 +11,6 @@ module.exports = {
   ],
   extends: [
     "stylelint-config-standard",
-    "stylelint-config-standard-scss",
     "stylelint-config-styled-components",
     "stylelint-config-prettier",
   ],
