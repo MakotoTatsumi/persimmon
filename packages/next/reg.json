@@ -1,1 +1,12 @@
-{"failedItems":["Checkbox/Checked.png","Checkbox/Default.png"],"newItems":[],"deletedItems":[],"passedItems":[],"expectedItems":["Checkbox/Checked.png","Checkbox/Default.png"],"actualItems":["Checkbox/Checked.png","Checkbox/Default.png"],"diffItems":["Checkbox/Checked.png","Checkbox/Default.png"],"actualDir":"./.screenshot/actual","expectedDir":"./.screenshot/expected","diffDir":"./.screenshot/diff"}
+{
+  "failedItems": ["Checkbox/Checked.png", "Checkbox/Default.png"],
+  "newItems": [],
+  "deletedItems": [],
+  "passedItems": [],
+  "expectedItems": ["Checkbox/Checked.png", "Checkbox/Default.png"],
+  "actualItems": ["Checkbox/Checked.png", "Checkbox/Default.png"],
+  "diffItems": ["Checkbox/Checked.png", "Checkbox/Default.png"],
+  "actualDir": "./.screenshot/actual",
+  "expectedDir": "./.screenshot/expected",
+  "diffDir": "./.screenshot/diff"
+}

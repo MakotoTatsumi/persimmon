@@ -2,7 +2,8 @@
   "name": "next",
   "scripts": {
     "build": "next build",
-    "check-all": "npm-run-all -p spell-check type-check lint -s test",
+    "check-all": "npm-run-all -s fix -p lint:css type-check spell-check -s test",
+    "check-code": "npm-run-all -p spell-check type-check lint",
     "clean-strapi": "rimraf ./src/libs/apiClient/strapi",
     "client-gen": "run-p client-gen:*",
     "client-gen:strapi": "run-s clean-strapi gen-strapi",

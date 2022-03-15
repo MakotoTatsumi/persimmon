@@ -22,4 +22,5 @@ module.exports = {
     "./configs/eslint/next",
     "prettier",
   ],
+  ignorePatterns: ["**/libs/**"],
 }
