@@ -12,4 +12,12 @@ module.exports = {
     "no-undefined": ERROR,
     "sort-keys": WARN,
   },
+  overrides: [
+    {
+      files: ["**/*.stories.{ts,tsx}", "**/*.test.{ts,tsx}"],
+      rules: {
+        "no-magic-numbers": OFF,
+      },
+    },
+  ],
 }
