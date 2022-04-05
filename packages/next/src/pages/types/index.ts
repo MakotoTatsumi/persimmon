@@ -1,4 +1,4 @@
-import {Methods} from "../../libs/apiClient/strapi/blogs";
+import { Methods } from "../../libs/apiClient/strapi/blogs"
 
 export type BlogsGetResult = {
   status: number
